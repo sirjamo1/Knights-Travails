@@ -1,4 +1,4 @@
-const gameboard = () => {
+const gameBoard = () => {
     const border = document.createElement("div");
     localStorage.setItem("startValue", []);
     localStorage.setItem("endValue", []);
@@ -22,7 +22,6 @@ const gameboard = () => {
                 let instructions = document.getElementById("instructions");
                 let start = localStorage.getItem("startValue");
                 let end = localStorage.getItem("endValue");
-                console.log(start.length, start);
                 if (start.length === 0) {
                     localStorage.setItem("startValue", [j, i]);
                     start = [j, i];
@@ -37,7 +36,7 @@ const gameboard = () => {
                     startButton.disabled = false;
                     localStorage.setItem("endValue", end);
 
-                    return (instructions.innerHTML = `Start: X:${start[0]} Y:${start[1]} End: X:${end[0]} Y:${end[1]}.`);
+                    return (instructions.innerHTML = `Start: X:${start[0]} Y:${start[2]} End: X:${end[0]} Y:${end[1]}.`);
                 }
             };
             row.appendChild(col);
@@ -46,4 +45,4 @@ const gameboard = () => {
     return border;
 };
 
-export default gameboard();
+export default gameBoard();

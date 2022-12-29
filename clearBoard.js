@@ -7,7 +7,6 @@ const clearBoard = (start) => {
         if (allSquares[i].firstChild) {
             allSquares[i].removeChild(allSquares[i].firstChild);
         }
-        console.log("clear ran");
     }
     const placeKnight = document.getElementById(`${start[0]}${start[1]}`);
     placeKnight.appendChild(knightImage);

@@ -1,10 +1,10 @@
 import header from "./header.js";
-import gameboard from "./gameboard.js";
+import gameBoard from "./gameBoard.js";
 import clearBoard from "./clearBoard.js";
 
-const gameboardContainer = document.getElementById("gameboard-container");
-gameboardContainer.appendChild(header);
-gameboardContainer.appendChild(gameboard);
+const gameBoardContainer = document.getElementById("game-board-container");
+gameBoardContainer.appendChild(header);
+gameBoardContainer.appendChild(gameBoard);
 const knightLocation = "00";
 const knightSquare = document.getElementById(knightLocation);
 let knightImage = document.createElement("img");
@@ -36,9 +36,9 @@ class Node {
 }
 
 const knightMoves = (start, end) => {
-    const boardLength = 7;
-    const rows = [2, 2, -2, -2, 1, 1, -1, -1];
-    const cols = [-1, 1, 1, -1, 2, -2, 2, -2];
+    const boardLength = 8;
+    const xAxis = [2, 2, -2, -2, 1, 1, -1, -1];
+    const yAxis = [-1, 1, 1, -1, 2, -2, 2, -2];
     const x = start[0];
     const y = start[1];
     const endX = end[0];
@@ -49,16 +49,16 @@ const knightMoves = (start, end) => {
     const validMoves = (x, y, node) => {
         const steps = [];
         for (let i = 0; i < boardLength; i += 1) {
-            const row = rows[i];
-            const col = cols[i];
-            if (x + row >= 0 && x + row <= 7 && y + col >= 0 && y + col <= 7) {
-                steps.push(new Node(x + row, y + col, node));
+            const xAxi = xAxis[i];
+            const yAxi = yAxis[i];
+            if (x + xAxi >= 0 && x + xAxi <= 7 && y + yAxi >= 0 && y + yAxi <= 7) {
+                steps.push(new Node(x + xAxi, y + yAxi, node));
             }
         }
         return steps;
     };
 
-    const consoleResult = (node) => {
+    const processResult = (node) => {
         let tempNode = node;
         let arr = [];
         // cycle through nodes parents while they exist, add their x, y to the start of arr
@@ -68,7 +68,7 @@ const knightMoves = (start, end) => {
         }
         // add starting point to the start after cycle
         arr.unshift(start);
-
+        //show each move
         let loops = arr.length - 1;
         let i = 0;
         const moveKnightLoop = () => {
@@ -81,10 +81,7 @@ const knightMoves = (start, end) => {
             }, 1500);
         };
         moveKnightLoop();
-
-        // a = '', v = arr[0] => '' += `[arr[0]] linebreak`
         const instructions = document.getElementById("instructions");
-
         return (instructions.innerHTML = `You made it in ${
             arr.length - 1
         } moves! Here's your path: ${arr.reduce(
@@ -92,16 +89,16 @@ const knightMoves = (start, end) => {
             ""
         )}`);
     };
-    // create new node with user given x, y to the queue
+    // create new node with user given x, y to the queue, (no parent)
     queue.push(new Node(x, y));
     // while queue has length, take first node (remove from queue)
     while (queue.length) {
         const node = queue.shift();
-        //check to see if this nodes x,y === end x,y if so print results
+        //check to see if this nodes x,y === end x,y if so process results
         if (node.x === endX && node.y === endY) {
-            return consoleResult(node);
+            return processResult(node);
         }
-        //if not check if this nodes x, y is already in visited array, if not look from valid moves, add nodes x,y (coord) to visited list and add the valid moves to then end of the queue
+        //if not check if this nodes x, y is already in visited array, if not look for valid moves, add nodes x,y (coord) to visited list and add the valid moves to the end of the queue
         if (!visited.some((coord) => `${node.x},${node.y}` === coord)) {
             const moves = validMoves(node.x, node.y, node);
             visited.push(`${node.x},${node.y}`);
