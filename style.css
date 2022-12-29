@@ -1,0 +1,70 @@
+body {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+#gameboard-container {
+ margin-top: 20px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+}
+#header {
+
+}
+#header > button {
+ margin: 10px;
+ width: 80px;
+}
+#start-button {
+
+ cursor: pointer;
+ /*👉visibility: hidden;👈*/
+}
+#reset-button {
+ cursor: pointer;
+}
+#chessboard-border {
+ width: 600px;
+ height: 600px;
+border: 2px solid black;
+ display: grid;
+}
+.rows {
+ display: flex;
+ justify-content: space-evenly;
+
+}
+.cols {
+ width: 100%;
+ cursor: pointer;
+ display: flex;
+}
+.cols:hover {
+ background-color: rgba(128, 128, 128, 0.494);
+}
+.black {
+background-color: black;
+color: white;
+}
+
+#knight-image {
+ position:absolute;
+ width: 70px;
+
+
+}
+.move-index {
+ position: absolute;
+padding-left: 30px;
+
+}
+.green-background {
+ background-color: green;
+}
+.red-background {
+ background-color: red;
+}
