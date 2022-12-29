@@ -2,6 +2,15 @@
 
 Knights Travails was made for The Odin Project
 
+Features
+
+ * Searches board breadth first and find the shortest possible path.
+ * Highlights start and end squares.
+ * Numbers each move.
+ * Displays path and how many moves it took.
+ * Start/reset button.
+ * Knight pauses at each move.
+
 <a href="https://sirjamo1.github.io/Knights-Travails/">CLICK HERE</a> for live preview
 
 

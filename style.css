@@ -1,70 +1,82 @@
 body {
- width: 100%;
- height: 100%;
- display: flex;
- align-items: center;
- justify-content: center;
+    width: 95vw;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #gameboard-container {
- margin-top: 20px;
- display: flex;
- flex-direction: column;
- align-items: center;
- text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 #header {
-
 }
 #header > button {
- margin: 10px;
- width: 80px;
+    margin: 10px;
+    width: 80px;
 }
 #start-button {
-
- cursor: pointer;
- /*👉visibility: hidden;👈*/
+    cursor: pointer;
+    /*👉visibility: hidden;👈*/
 }
 #reset-button {
- cursor: pointer;
+    cursor: pointer;
 }
 #chessboard-border {
- width: 600px;
- height: 600px;
-border: 2px solid black;
- display: grid;
+    width: 600px;
+    height: 600px;
+    border: 2px solid black;
+    display: grid;
 }
 .rows {
- display: flex;
- justify-content: space-evenly;
-
+    display: flex;
+    justify-content: space-evenly;
 }
 .cols {
- width: 100%;
- cursor: pointer;
- display: flex;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 .cols:hover {
- background-color: rgba(128, 128, 128, 0.494);
+    background-color: rgba(128, 128, 128, 0.494);
 }
 .black {
-background-color: black;
-color: white;
+    background-color: black;
+    color: white;
 }
 
 #knight-image {
- position:absolute;
- width: 70px;
-
-
+    position: absolute;
+    width: 70px;
 }
 .move-index {
- position: absolute;
-padding-left: 30px;
-
+    position: absolute;
+    padding-left: 30px;
 }
 .green-background {
- background-color: green;
+    background-color: green;
 }
 .red-background {
- background-color: red;
+    background-color: red;
+}
+@media screen and (max-width: 600px) {
+    #chessboard-border {
+        width: 300px;
+        height: 300px;
+    }
+    #knight-image {
+        width: 30px;
+        padding-left: 2px;
+    }
+    .move-index {
+        padding-left: 12px;
+    }
+    #instructions {
+        font-size: 10px;
+    }
 }

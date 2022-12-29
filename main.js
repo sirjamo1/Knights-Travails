@@ -78,7 +78,7 @@ const knightMoves = (start, end) => {
                 if (i < loops) {
                     moveKnightLoop();
                 }
-            }, 2000);
+            }, 1500);
         };
         moveKnightLoop();
 
